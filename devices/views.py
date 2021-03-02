@@ -165,27 +165,27 @@ class PhoneUpdateView(mixins.LoggedInOnlyView, SuccessMessageMixin, UpdateView):
         
     def get_form(self, form_class=None):
         form = super().get_form(form_class=form_class)
-        form.fields["name_1"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_2"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_3"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_4"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_5"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_6"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_7"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_8"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_9"].widget.attrs = {"placeholder": "이름"}
-        form.fields["name_10"].widget.attrs = {"placeholder": "이름"}
+        form.fields["name_1"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_2"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_3"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_4"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_5"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_6"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_7"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_8"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_9"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
+        form.fields["name_10"].widget.attrs = {"placeholder": "이름", "class": "w-20"}
 
-        form.fields["phone_1"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_2"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_3"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_4"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_5"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_6"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_7"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_8"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_9"].widget.attrs = {"placeholder": "연락처", "type": "password",}
-        form.fields["phone_10"].widget.attrs = {"placeholder": "연락처", "type": "password",}
+        form.fields["phone_1"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_2"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_3"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_4"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_5"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_6"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_7"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_8"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_9"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
+        form.fields["phone_10"].widget.attrs = {"placeholder": "연락처", "class": "w-24"}
         
         return form
     # def get_form(self, form_class=None):

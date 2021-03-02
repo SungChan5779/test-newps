@@ -14,15 +14,33 @@ Phone_number
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         이름
                     </th>
-                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         연락처
                     </th>
-                    <th scope="col" class="relative px-6 py-3">
-                      <span class="sr-only">Edit</span>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      통신에러
                     </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      RS232에러
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      바이패스
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      정전
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      배터리저전압
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      기타
+                    </th>
+                    <!-- <th scope="col" class="relative px-6 py-3">
+                      <span class="sr-only">Edit</span>
+                    </th> -->
                 </tr>
             </thead>
         
@@ -33,15 +51,36 @@ Phone_number
               
                 {% if forloop.counter|divisibleby:2 == 0 %}
                 <tr>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {{field}}
                 </td>
                 {% else %}
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   {{field}}
                 </td>
-                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                  <a href="#" class="text-indigo-600 hover:text-indigo-900">세부사항</a>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <!-- <a href="#" class="text-indigo-600 hover:text-indigo-900">Event Alarm</a> -->
+                  <input type="checkbox" id="1">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <!-- <a href="#" class="text-indigo-600 hover:text-indigo-900">Event Alarm</a> -->
+                  <input type="checkbox" id="2">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <!-- <a href="#" class="text-indigo-600 hover:text-indigo-900">Event Alarm</a> -->
+                  <input type="checkbox" id="3">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <!-- <a href="#" class="text-indigo-600 hover:text-indigo-900">Event Alarm</a> -->
+                  <input type="checkbox" id="4">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                  <!-- <a href="#" class="text-indigo-600 hover:text-indigo-900">Event Alarm</a> -->
+                  <input type="checkbox" id="5">
+                  <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                    <!-- <a href="#" class="text-indigo-600 hover:text-indigo-900">Event Alarm</a> -->
+                    <input type="checkbox" id="6">
+                  </td>
                 </td>
                 </tr>
                 {% endif %}
