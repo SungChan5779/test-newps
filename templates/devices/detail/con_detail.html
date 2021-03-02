@@ -1,0 +1,311 @@
+{% block content %}
+  <div>
+  <table class="min-w-full divide-y divide-gray-200">
+            
+            <tbody class="bg-white divide-y divide-gray-200">
+            <tr>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="flex-shrink-0 h-10 w-10">
+                    <img class="h-10 w-10 rounded-full" src="http://www.kjups.com/design/default/images/np02-02.jpg" alt="">
+                  </div>
+                  <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900">
+                      {{device.name}}
+                    </div>
+                    <div class="text-sm text-gray-500">
+                      {{detail.con_location}}
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div class="text-sm text-gray-900">{{detail.ups_model}}</div>
+                <div class="text-sm text-gray-500">Optimization</div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  Active
+                </span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                {{detail.ups_admin}}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                <a href="{% url 'devices:phoneupdate' device.phones.id %}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+              </td>
+            </tr>
+
+            <!-- More items... -->
+          </tbody>
+        </table>
+  </div>
+
+<div class="mt-2 bg-gray-300 border">
+  <h3 class="text-2xl">Input</h3>
+</div>
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    
+                    {% if detail.input_phase == 1 %}
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Input_V
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Input_C
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Input_Hz
+                    </th>
+                    
+                        
+                    {% else %}
+                    
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Input_V_R/S/T
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Input_C_R/S/T
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Input_Hz_R/S/T
+                    </th>
+                    
+                    {% endif %}
+                </tr>
+            </thead>
+        
+        
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                {% if detail.input_phase == 1 %}
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.input_voltage}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.input_current}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.input_hz}}
+                  </td>
+                {% else %}
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.input_voltage_r}}/{{detail.input_voltage_s}}/{{detail.input_voltage_t}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.input_current_r}}/{{detail.input_current_s}}/{{detail.input_current_t}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.input_hz_r}}/{{detail.input_hz_s}}/{{detail.input_hz_t}}
+                  </td>
+                {% endif %}
+              </tr>
+
+            <!-- More items... -->
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-2 bg-gray-300 border">
+  <h3 class="text-2xl">Output</h3>
+</div>
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    
+                    {% if detail.output_phase == 1 %}
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                      output_V
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                      output_C
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                      output_Hz
+                  </th>
+                  
+                      
+                  {% else %}
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                      output_V_R/S/T
+                  </th>
+                  
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                      output_C_R/S/T
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                      output_Hz_R/S/T
+                  </th>
+                  {% endif %}
+                </tr>
+            </thead>
+        
+        
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                {% if detail.output_phase == 1 %}
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.output_voltage}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.output_current}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.output_hz}}
+                  </td>
+                {% else %}
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.output_voltage_r}}/{{detail.output_voltage_s}}/{{detail.output_voltage_t}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.output_current_r}}/{{detail.output_current_s}}/{{detail.output_current_t}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.output_hz_r}}/{{detail.output_hz_s}}/{{detail.output_hz_t}}
+                  </td>
+                {% endif %}
+              </tr>
+
+            <!-- More items... -->
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-2 bg-gray-300 border">
+  <h3 class="text-2xl">Bypass</h3>
+</div>
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    
+                    {% if detail.output_phase == 1 %}
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Bypass_V
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Bypass_C
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Bypass_Hz
+                    </th>
+                    
+                        
+                    {% else %}
+                    
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Bypass_V_R/S/T
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Bypass_C_R/S/T
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Bypass_Hz_R/S/T
+                    </th>
+                    
+                    {% endif %}
+                </tr>
+            </thead>
+        
+        
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                {% if detail.output_phase == 1 %}
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.bypass_voltage}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.bypass_current}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.bypass_hz}}
+                  </td>
+                {% else %}
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.bypass_voltage_r}}/{{detail.bypass_voltage_s}}/{{detail.bypass_voltage_t}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.bypass_current_r}}/{{detail.bypass_current_s}}/{{detail.bypass_current_t}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.bypass_hz_r}}/{{detail.bypass_hz_s}}/{{detail.bypass_hz_t}}
+                  </td>
+                {% endif %}
+              </tr>
+
+            <!-- More items... -->
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-2 bg-gray-300 border">
+  <h3 class="text-2xl">Battery</h3>
+</div>
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    
+                    
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Battery_V
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Battery_C
+                    </th>
+                    <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase w-1/3">
+                        Battery_status
+                    </th>
+                    
+                </tr>
+            </thead>
+        
+        
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr>
+                
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.battery_voltage}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.battery_current}}
+                  </td>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 w-1/3">
+                    {{detail.battery_status}}
+                  </td>
+                
+                
+              </tr>
+
+            <!-- More items... -->
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block page_name %}
+Detail_List
+{% endblock page_name %}
+
+{% block content %}
+
+{% if device_s == "ups" %}
+    {% include 'devices/detail/ups_detail.html' %}
+{% elif device_s == "th" %}
+    {% include 'devices/detail/th_detail.html' %}
+{% else %}
+{% include 'devices/detail/con_detail.html' %}
+    {% endif %}
+
+{% endblock content %}

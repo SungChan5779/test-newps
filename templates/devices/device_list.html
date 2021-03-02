@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block page_name %}
+Device_List
+{% endblock page_name %}
+
+{% block content %}
+{% include 'devices/list/items/ups.html' %}
+{% include 'devices/list/items/th.html' %}
+{% include 'devices/list/items/conn.html' %}
+{% endblock content %}

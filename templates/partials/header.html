@@ -1,0 +1,14 @@
+<ul class="font-semibold flex items-center pl-6">
+
+{% if user.is_authenticated %}
+<li class="ml-8"><a href="{% url 'core:home' %}">전체</a></li>
+<li class="ml-8"><a href="{% url 'devices:ups' %}">UPS</a></li>
+<li class="ml-8"><a href="{% url 'devices:th' %}">온습도</a></li>
+<li class="ml-8"><a href="{% url 'devices:conn' %}">기타장비</a></li>
+<li class="ml-8"><a href="{% url 'users:logout' %}">Log Out</a></li>
+{% else %}
+<li class="ml-8"><a href="{% url 'users:login' %}">Log In</a></li>
+{% endif %}
+</ul>
+
+
